@@ -1,0 +1,27 @@
+/* $air-color:linear-gradient(to bottom right,  #38d38d ,#6eed57); */
+@media only screen and (min-width:992px){
+    .nav-right {
+        justify-content: flex-end !important;
+    }
+    .overFlow-scroll{
+        overflow: scroll;
+    }
+}
+.air-header{
+    color:#38d38d;
+}
+.special-color{
+
+    background-color:linear-gradient(to bottom right, rgb(126, 182, 96), rgb(160, 235, 119)) !important;
+    background-color: rgb(126, 182, 96); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, rgb(117, 170, 89), rgb(208, 241, 129))
+}
+button.btn.btn-air.airBtn.border-20 {
+    border-radius: 20px;
+}
+
+
+button.btn.btn-air:hover {
+    color: white;
+}
+

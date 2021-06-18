@@ -1,0 +1,32 @@
+.airBtn-check:focus+.airBtn, .airBtn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(63 189 119 / 34%) !important;
+}
+.cursor{
+    cursor:pointer;
+}
+@media only screen and (min-width: 600px){
+/* .col-md-7.mt-5.row.h-700 {
+    height: 700px;
+    overflow: scroll;
+} */
+
+}
+.user-select-none{
+    user-select: none;
+}
+
+button.btn-air {
+    background-image: linear-gradient(to bottom right,  #38d38d ,#6eed57);
+}
+.btn-outline-air {
+    color: #6cda6f;
+    border-color: #5ad258;
+}
+.btn-outline-air:hover {
+    color: white;
+    background-image: linear-gradient(to bottom right,  #38d38d ,#6eed57);
+}
+.img-208 {
+    height: 208px;
+}

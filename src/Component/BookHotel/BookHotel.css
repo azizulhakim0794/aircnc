@@ -1,0 +1,13 @@
+* { margin: 0; padding: 0; }
+.book-hotel-img {
+    height: 133px;
+    width: 271px;
+    border-radius: 22px;
+}
+img.thingInImg {
+    height: 23px;
+    width: 23px;
+}
+.things-box{
+    width: 60px;
+}
