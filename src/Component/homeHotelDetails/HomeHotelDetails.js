@@ -13,6 +13,7 @@ import AirCncNavHome from '../../CommonComponent/AirCncNavHome/AirCncNavHome';
 import { UserContext } from '../../App';
 import { useHistory, useParams } from 'react-router';
 import axios from 'axios';
+import Footer from '../../CommonComponent/Footer/Footer';
 const HomeHotelDetails = () => {
     let { id } = useParams()
     const cleaningFee = 10
@@ -119,6 +120,7 @@ const HomeHotelDetails = () => {
 
                     </div>
                 </div>
+                <Footer/>
             </div> : <Loading/>}
         </div>
     );

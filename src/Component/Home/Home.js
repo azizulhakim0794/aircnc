@@ -6,6 +6,7 @@ import { UserContext } from '../../App';
 import axios from 'axios';
 import HotelList from './HotelList/HotelList';
 import Loading from '../../CommonComponent/Loading/Loading';
+import Footer from '../../CommonComponent/Footer/Footer';
 const Home = () => {
     const [userDataInfo, setUserDataInfo] = useContext(UserContext)
     const [count1, setCount1] = useState(0)
@@ -193,6 +194,7 @@ useEffect(() =>{
                         }
                     </div>
                 </div>
+                <Footer/>
             </div>) :
                 <Loading />}
             

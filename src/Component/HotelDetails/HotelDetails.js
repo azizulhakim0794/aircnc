@@ -13,6 +13,7 @@ import check from './../../images/checkmark-square-2.png'
 import spray from './../../images/solid.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faStar } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../../CommonComponent/Footer/Footer';
 
 const HotelDetails = () => {
     let { id } = useParams()
@@ -104,6 +105,7 @@ const HotelDetails = () => {
 
                     </div>
                 </div>
+                <Footer/>
             </div> : <Loading />}
         </div>
     );
