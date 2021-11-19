@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import './Login.css'
 import "firebase/auth";
 import firebase from 'firebase/app';
@@ -8,8 +8,6 @@ import { useHistory, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 const Login = () => {
-  // const [userData , setUserData] = useContext(UserContext)
-  const [loadReq] = useState(false)
   const [userDataInfo, setUserDataInfo] = useContext(UserContext)
   const history = useHistory()
   const location = useLocation()
@@ -33,7 +31,7 @@ const Login = () => {
         newUserData.email = email
         newUserData.uid = uid
         setUserDataInfo(newUserData)
-
+        history.replace(from)
 
 
         // ...
@@ -52,20 +50,6 @@ const Login = () => {
       });
     e.preventDefault()
   }
-  const handleSing = () => {
-    alert('This Method is not Work. For Sing in and login try Google with Sing in')
-  }
-  useEffect(() => {
-    if (userDataInfo.isSignedIn) {
-      history.replace('/home');
-
-    }
-    if (userDataInfo.isSignedIn && userDataInfo.userLocation) {
-      history.replace(from);
-
-    }
-    return loadReq;
-  }, [userDataInfo.isSignedIn, userDataInfo.userLocation])
   return (
     <div className="loginBody">
       <nav className="navbar navbar-light bg-light">
@@ -94,7 +78,7 @@ const Login = () => {
                     <input type="checkbox" className="custom-control-input mr-3" id="customCheck1" />
                     <label className="custom-control-label ms-3" htmlFor="customCheck1">Remember password</label>
                   </div>
-                  <button onClick={handleSing} className="btn btn-lg btn-air airBtn text-white btn-block text-uppercase col-md-12 col-sm-12 col-12"  type="submit">Sign in</button>
+                  <button  className="btn btn-lg btn-air airBtn text-white btn-block text-uppercase col-md-12 col-sm-12 col-12"  type="submit">Sign in</button>
                   <hr className="my-4" />
                   <button onClick={singInWithGoogle} className="btn btn-lg btn-google btn-block text-uppercase mb-3 col-md-12 col-sm-12 col-12" type="submit"><FontAwesomeIcon icon={faGoogle} /> Sign in with Google</button>
                   <button className="btn btn-lg btn-facebook btn-block text-uppercase col-md-12 col-sm-12 col-12" type="submit"><FontAwesomeIcon icon={faFacebookF} /> Sign in with Facebook</button>

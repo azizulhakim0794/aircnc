@@ -1,0 +1,20 @@
+.col-md-8.mt-5.row.h-700.overFlow-scroll {
+  height: 700px;
+}
+
+.h-500{
+  height:500px;
+}
+.rounded-50{
+  max-width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+img.titleImg {
+  height: 19px;
+  margin-bottom: 6px;
+  margin-right: 10px;
+}
+.h-0{
+  height:0px
+}

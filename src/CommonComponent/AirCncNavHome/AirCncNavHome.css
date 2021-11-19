@@ -18,6 +18,8 @@
 }
 button.btn.btn-air.airBtn.border-20 {
     border-radius: 20px;
+    background-image: linear-gradient(to bottom right,  #38d38d ,#6eed57) !important;
+
 }
 
 

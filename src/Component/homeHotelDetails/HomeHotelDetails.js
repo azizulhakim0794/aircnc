@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import './HomeHotelDetails.css'
 import buildingImg from './../../images/building.jpeg'
 import managerImg from './../../images/manager.jpg'
 import Loading from '../../CommonComponent/Loading/Loading';
@@ -25,14 +24,14 @@ const HomeHotelDetails = () => {
         axios.get(`https://fierce-chamber-07496.herokuapp.com/hotel/${id}`)
             .then(response => setHotelDetailsData(response.data))
     }, [id])
-    const handleForReserve = () =>{
-        if(!userDataInfo.isSignedIn){
+    const handleForReserve = () => {
+        if (!userDataInfo.isSignedIn) {
             history.push('/login')
         }
-        if(!userDataInfo.isLocationValid){
+        if (!userDataInfo.isLocationValid) {
             history.push('/home')
         }
-        else{
+        else {
             history.push(`/bookHotel/${id}`)
         }
     }
@@ -105,13 +104,13 @@ const HomeHotelDetails = () => {
                                     <div className="border-bottom mt-3 col-md-10 d-flex justify-content-around"><p className="">Service Fee</p>
                                         <p className="">${serviceFee}</p></div>
                                 </div>
-                                
+
                                 <div className="col-md-10">
                                     <div className=" mt-3 col-md-10 h6 d-flex justify-content-around"><p className="">Total</p>
-                                        <p className="">${cleaningFee+serviceFee+Number(hotelDetailsData.adultPrice)+Number(hotelDetailsData.childPrice)+Number(hotelDetailsData.babyPrice)}</p></div>
+                                        <p className="">${cleaningFee + serviceFee + Number(hotelDetailsData.adultPrice) + Number(hotelDetailsData.childPrice) + Number(hotelDetailsData.babyPrice)}</p></div>
                                 </div>
                                 <div className="col-md-10 col-sm-10 col-10">
-                                    <button className="btn btn-air airBtn col-md-10 mb-3 text-white"onClick={handleForReserve} >Reserve</button>
+                                    <button className="btn btn-air airBtn col-md-10 mb-3 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal"  >Reserve</button>
                                     <br />
                                     <p className="text-secondary col-md-10 text-center">You Won't be Change Yet.</p>
                                 </div>
@@ -120,8 +119,29 @@ const HomeHotelDetails = () => {
 
                     </div>
                 </div>
-                <Footer/>
-            </div> : <Loading/>}
+                <Footer />
+            </div> : <Loading />}
+
+            {/* Modal */}
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">!!!Notice</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            To Book This hotel You must fill the home page's requerments and click on the search button the many of hotel you search this one and then select and book this hotel. <br/> <br/>
+                            Thank You
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-air" data-bs-dismiss="modal" onClick={handleForReserve}>Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 };

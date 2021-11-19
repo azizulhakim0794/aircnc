@@ -1,21 +1,24 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState,Suspense, lazy } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import './App.css';
-import Home from './Component/Home/Home';
-import NotFound from './Component/NotFound/NotFound';
-import SelectLocation from './Component/SelectLocation/SelectLocation';
-import HotelDetails from './Component/HotelDetails/HotelDetails';
-import Login from './Component/Login/Login';
-import PrivateRoute from './Component/Login/PrivateRoute/PrivateRoute';
-import PrivateRouteHoDetails from './Component/BookHotel/PrivateRouteHoDetails/PrivateRouteHoDetails';
-import BookHotel from './Component/BookHotel/BookHotel';
-import HelpPage from './Component/HelpPage/HelpPage';
-import HomeHotelDetails from './Component/homeHotelDetails/HomeHotelDetails';
+import './Common.css';
+import Loading from './CommonComponent/Loading/Loading';
 export const UserContext = createContext()
+const Home = lazy(()=> import('./Component/Home/Home'))
+const NotFound = lazy(()=> import('./Component/NotFound/NotFound'))
+const SelectLocation = lazy(()=> import('./Component/SelectLocation/SelectLocation'))
+const HotelDetails = lazy(()=> import('./Component/HotelDetails/HotelDetails'))
+const Login = lazy(()=> import('./Component/Login/Login'))
+const PrivateRoute = lazy(()=> import('./Component/Login/PrivateRoute/PrivateRoute'))
+// const PrivateRouteHoDetails = lazy(()=> import('./Component/BookHotel/PrivateRouteHoDetails/PrivateRouteHoDetails'))
+const BookHotel = lazy(()=> import('./Component/BookHotel/BookHotel'))
+const HomeHotelDetails = lazy(()=> import('./Component/homeHotelDetails/HomeHotelDetails'))
+const HelpPage = lazy(()=> import('./Component/HelpPage/HelpPage'))
+
+
 
 function App() {
   const [userDataInfo, setUserDataInfo] = useState({
@@ -29,6 +32,7 @@ function App() {
     diffDays: 0
   })
   return (
+    <Suspense fallback={<Loading/>}>
     <UserContext.Provider value={[userDataInfo, setUserDataInfo]}>
       <Router>
         <Switch>
@@ -47,9 +51,9 @@ function App() {
           <Route path="/details/:id">
             <HomeHotelDetails />
           </Route>
-          <PrivateRouteHoDetails path="/hotelDetails/:id">
+          <PrivateRoute path="/hotelDetails/:id">
             <HotelDetails />
-          </PrivateRouteHoDetails>
+          </PrivateRoute>
           <PrivateRoute path="/bookHotel/:id">
             <BookHotel />
           </PrivateRoute>
@@ -62,6 +66,7 @@ function App() {
         </Switch>
       </Router>
     </UserContext.Provider>
+    </Suspense>
   );
 }
 

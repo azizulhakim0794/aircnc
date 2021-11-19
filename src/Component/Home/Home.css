@@ -17,7 +17,10 @@
 }
 
 button.btn-air {
-    background-image: linear-gradient(to bottom right,  #38d38d ,#6eed57);
+    background-image: linear-gradient(to bottom right,  #38d38d ,#6eed57) !important;
+}
+button.btn.btn-air.airBtn.col-md-10.mb-3.text-white {
+    background-color: linear-gradient(to bottom right, #38d38d ,#6eed57) !important;
 }
 .btn-outline-air {
     color: #6cda6f;
