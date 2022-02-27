@@ -6,10 +6,6 @@
     cursor:pointer;
 }
 @media only screen and (min-width: 600px){
-/* .col-md-7.mt-5.row.h-700 {
-    height: 700px;
-    overflow: scroll;
-} */
 
 }
 .user-select-none{
@@ -32,4 +28,42 @@ button.btn.btn-air.airBtn.col-md-10.mb-3.text-white {
 }
 .img-208 {
     height: 208px;
+}
+.homePhoto{
+    /* background-image: url(../../images/hotel-home.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    background:linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url(../../images/hotel-home.jpg);
+    /* filter: blur(6px);
+  -webkit-filter: blur(4px); */
+    background-size: cover;
+}
+.homePhotoSection{
+    position: relative;
+}
+.homeHeaderText{
+    /* text-align: center; */
+    position: absolute;
+    bottom: 25%;
+    /* left: 30%; */
+    /* transform: translate(-50%, -50%); */
+    color: white;
+}
+.ex-img-1{
+background-repeat: no-repeat;
+background-position: center;
+height: 400px;
+background:linear-gradient(to top, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url(../../images/travel1.jpg);
+background-size: cover;
+}
+.ex-img-2{
+background-repeat: no-repeat;
+background-position: center;
+height: 400px;
+background:linear-gradient(to top, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url(../../images/travel2.jpg);
+background-size: cover;
+}
+.border-0{
+    border: none !important;
 }

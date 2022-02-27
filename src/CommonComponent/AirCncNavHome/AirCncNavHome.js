@@ -8,7 +8,7 @@ const AirCncNavHome = () => {
         history.push('/login')
     }
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <div className="container-fluid">
                 <div className="air-header">
                 <p className="h2 air-brand">Aircnc</p>

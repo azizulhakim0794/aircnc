@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AirCncNavHome from '../../CommonComponent/AirCncNavHome/AirCncNavHome';
 import './Home.css'
-import { useHistory,useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { UserContext } from '../../App';
 import axios from 'axios';
 import HotelList from './HotelList/HotelList';
-import Loading from '../../CommonComponent/Loading/Loading';
+// import Loading from '../../CommonComponent/Loading/Loading';
 import Footer from '../../CommonComponent/Footer/Footer';
+// import Fade from 'react-reveal/Fade';
+// import homePng from '../../images/hotel-home.jpg';
+import HomeHeader from './../HomeHeader/HomeHeader';
+import HomeExperience from './../HomeExperience/HomeExperience';
 const Home = () => {
     const [userDataInfo, setUserDataInfo] = useContext(UserContext)
     const [count1, setCount1] = useState(0)
@@ -14,7 +18,7 @@ const Home = () => {
     const [count3, setCount3] = useState(0)
     const [bedRoom, setBedRoom] = useState(0)
     const [hotels, setHotels] = useState([])
-    const [differenceDays ,setDifferenceDays] = useState(0)
+    const [differenceDays, setDifferenceDays] = useState(0)
     const [userTime, setUserTime] = useState({
         arrival: '',
         departure: ''
@@ -52,11 +56,11 @@ const Home = () => {
         setUserSearchLocation(userInfoSearch)
 
     }
-useEffect(() =>{
-        if(userTime.arrival && userTime.departure){
-            setDifferenceDays( diffDay(new Date(userTime.arrival), new Date(userTime.departure)))
+    useEffect(() => {
+        if (userTime.arrival && userTime.departure) {
+            setDifferenceDays(diffDay(new Date(userTime.arrival), new Date(userTime.departure)))
         }
-    },[userTime.arrival,userTime.departure])
+    }, [userTime.arrival, userTime.departure])
     const handleCountDaysChange = (e) => {
         const userInfo = { ...userTime }
         userInfo[e.target.name] = e.target.value
@@ -65,12 +69,12 @@ useEffect(() =>{
     if (userDataInfo.userLocation === 'Sundarbans') {
         history.replace(from);
 
-      }
+    }
     const handleSubmit = (e) => {
         if (userTime.arrival === userTime.departure) {
             alert('Please select departure date again')
         }
-                // all UserDataInfo Set
+        // all UserDataInfo Set
         if (count1 >= 1) {
             if (bedRoom >= 1) {
                 const newUserData = { ...userDataInfo }
@@ -84,7 +88,7 @@ useEffect(() =>{
                 newUserData.bookRoom = bedRoom
                 newUserData.isLocationValid = true
                 setUserDataInfo(newUserData)
-                if(differenceDays >= 1){
+                if (differenceDays >= 1) {
                     handleLocation()
                 }
             }
@@ -92,7 +96,7 @@ useEffect(() =>{
                 alert('Your selection must be 1 Bed Room')
             }
         }
-       
+
         else {
             alert('Your selection must be Adult First')
         }
@@ -105,10 +109,15 @@ useEffect(() =>{
     return (
         <div>
 
-            {hotels.length ? (<div>
+            <div>
                 <AirCncNavHome />
+                {/* <img src={homePng} loading="lazy" alt="home" /> */}
+                    <HomeHeader/>
+                    <br />
+                    <br />
+                    <br />
+                    <HomeExperience/>
                 <div className="container-fluid row mt-5 m-auto">
-
                     <div className="col-md-4 col ">
                         <p className="h4">Where do you want go?</p>
                         <form onSubmit={handleSubmit} >
@@ -194,10 +203,9 @@ useEffect(() =>{
                         }
                     </div>
                 </div>
-                <Footer/>
-            </div>) :
-                <Loading />}
-            
+                <Footer />
+            </div>
+
         </div>
     );
 };

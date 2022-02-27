@@ -5,6 +5,8 @@ import {
   Route,
 } from "react-router-dom";
 import './Common.css';
+import './../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import Loading from './CommonComponent/Loading/Loading';
 export const UserContext = createContext()
 const Home = lazy(()=> import('./Component/Home/Home'))
