@@ -11,7 +11,7 @@ const AirCncNavHome = () => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <div className="container-fluid">
                 <div className="air-header">
-                <p className="h2 air-brand">Aircnc</p>
+                <p onClick={() => history.push('/')} className="h2 air-brand cursor ">Aircnc</p>
                 </div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

@@ -54,7 +54,7 @@ const Login = () => {
     <div className="loginBody">
       <nav className="navbar navbar-light bg-light">
         <div className="container-fluid">
-          <p className="h2 air-brand">Aircnc</p>
+          <p onClick={() =>history.push('/')} className="h2 air-brand cursor ">Aircnc</p>
         </div>
       </nav>
       <div className="container ">
